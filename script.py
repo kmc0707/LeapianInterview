@@ -18,11 +18,22 @@ def create_dictionary():
             DicOfWords[int(set[1])] = word
     return DicOfWords
 
+def words_sorted_by_word_height(DicOfWords):
+    array_of_words=DicOfWords.values()
+    Dic_sorted = {}
+    for word in array_of_words:
+        if word.wordHeight in Dic_sorted:
+            Dic_sorted[word.wordHeight].append(word)
+        else:
+            Dic_sorted[word.wordHeight] = [word]
+    return Dic_sorted
+
 
 
 
 if __name__ == "__main__":
     
     DicOfWords = create_dictionary()
-    print(DicOfWords[110])
+    Dic_sorted = words_sorted_by_word_height(DicOfWords)
+    print(len(Dic_sorted[8]))
     
