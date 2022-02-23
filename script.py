@@ -35,5 +35,6 @@ if __name__ == "__main__":
     
     DicOfWords = create_dictionary()
     Dic_sorted = words_sorted_by_word_height(DicOfWords)
-    print(len(Dic_sorted[8]))
-    
+    for key in Dic_sorted.keys():
+        print(key,  " " , len(Dic_sorted[key]))
+
