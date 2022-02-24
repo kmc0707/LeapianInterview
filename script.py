@@ -64,6 +64,27 @@ def mmm_y_axis(DicOfWords):
     mean = mean/total
     print("meadian: " , median, " mode: ", mode, " mean: ", mean)
 
+
+def words_sorted_by_y_axis_and_x_axis(DicOfWords):
+    for key in DicOfWords.keys():
+        DicOfWords[key].sort(key=lambda x: x.wordX)
+    return DicOfWords
+
+def mmm_x_axis(DicOfWords):
+    for key in DicOfWords.keys():
+        total = 0
+        mean = -1
+        median = -1
+        x_array = DicOfWords[key]
+        highest = x_array[len(x_array)-1].wordX
+        lowest = x_array[0].wordX
+        for value in x_array:
+            total += 1
+            mean += value.wordX
+        median = (highest - lowest)/2
+        mean = mean/total
+        print("y line: " , key, "meadian: " , median, " mean: ", mean)
+    
 if __name__ == "__main__":
     
     DicOfWords = create_dictionary()
@@ -72,4 +93,6 @@ if __name__ == "__main__":
         print(key,  " " , len(Dic_sorted[key]))
     Dic_sorted_y = words_sorted_by_y_coordinate(Dic_sorted,8)
     mmm_y_axis(Dic_sorted_y)
+    x = words_sorted_by_y_axis_and_x_axis(Dic_sorted_y)
+    mmm_x_axis(x)
 
